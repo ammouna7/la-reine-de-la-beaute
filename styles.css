@@ -1,0 +1,122 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: url(images/purple\ background.jpg)  ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.flower {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-image: url(images/flower\ purple.png);
+    background-size: cover;
+    border-radius: 50%;
+    animation: fall 10s infinite ease-in;
+    top: var(--random-top);
+    left: calc(100% * var(--random-x));
+}
+
+@keyframes fall {
+    0%{
+        top: var(--random-top);
+        left: calc(100% * var(--random-x) );
+    }
+    100%{
+        top: 100vh;
+        left: calc(100% * var(--random-x) + 10%);
+    }
+}
+
+.flower:nth-child(odd) {
+    animation-duration: 15s; /* Odd-numbered flowers fall slower */
+    animation-delay: -1s; /* Delay for some randomness */
+}
+
+.flower:nth-child(even) {
+    animation-duration: 13s; /* Even-numbered flowers fall faster */
+    animation-delay: -3s; /* Different delay */
+}
+.game-container {
+    display: flex;
+    align-items: center;  
+    justify-content: center;
+    gap: 50px;  
+    position: relative;
+    z-index: 2;
+}
+
+.main-menu {
+    text-align: center;
+    background-color: #edadec;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    z-index: 2;
+}
+
+.title-container {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #ab67cd; 
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #832c85; 
+}
+
+.last-score p {
+    font-size: 1.3rem;
+    color: #f10da9;
+    margin-bottom: 30px;
+}
+
+.last-score span {
+    font-weight: bold;
+    color: #f10da9; 
+}
+
+.button-container .btn {
+    padding: 15px 30px;
+    font-size: 1.4rem;
+    color: #fff;
+    background: linear-gradient(145deg, #ee8bff, #dd61ff); 
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1), -4px -4px 15px rgba(255, 255, 255, 0.3);
+}
+
+.button-container .btn:hover {
+    background: linear-gradient(145deg, #dd61ff, #ee8bff);
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15), -4px -4px 20px rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+}
+
+.button-container .btn:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
+
+.button-container .btn:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.8); 
+}
